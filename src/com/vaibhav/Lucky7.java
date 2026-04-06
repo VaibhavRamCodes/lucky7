@@ -10,6 +10,13 @@
 
 package com.vaibhav;
 
+import java.util.Scanner;
+
+// Player class
+class Player {
+
+}
+
 public class Lucky7 {
     public static void main(String[] args) {
 
