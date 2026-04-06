@@ -57,12 +57,10 @@ class Player {
         if (betAmount > gameAmount) {
             System.out.println("❌ You cannot bet more than your current balance.");
             return;
-        }
-        else if (betAmount <= 0) {
+        } else if (betAmount <= 0) {
             System.out.println("❌ Bet amount must be greater than 0.");
             return;
-        }
-        else {
+        } else {
             dice.diceRoll(); // Calling diceroll method in private dice class
         }
     }
@@ -85,6 +83,21 @@ class Player {
     // Private result class
     private class Result {
 
+        //Private checkResult method to check the player won or lose.
+        private void checkResult() {
+            if (sumOfDice == 7) {
+                System.out.println("🎉 Congratulations! You won the bet!");
+                gameAmount += (betAmount * 3) - betAmount;
+                System.out.println("Now, you have: " + gameAmount);
+            } else {
+                System.out.println("😢 Oops! You lost the bet.");
+                gameAmount -= betAmount;
+                if (gameAmount == 0) {
+                    System.out.println("💀 You have no money left to continue.");
+                    System.out.println("Better luck next time!");
+                }
+            }
+        }
     }
 }
 
