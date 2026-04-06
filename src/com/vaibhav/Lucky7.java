@@ -104,7 +104,17 @@ class Player {
     }
 
     private class Retry {
+        private void retryGame() {
+            System.out.println("Press Y to play again or N to exit:");
+            char retryChoice = sc.next().charAt(0); // Only first character of choice will accept either Y or N.
 
+            if (retryChoice == 'Y' || retryChoice == 'y') {
+                startGame();
+            } else {
+                System.out.println("Thanks for playing!");
+                System.out.println("See you next time at V's Casino 🎰");
+            }
+        }
     }
 }
 
