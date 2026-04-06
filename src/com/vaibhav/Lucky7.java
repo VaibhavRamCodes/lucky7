@@ -10,18 +10,26 @@
 
 package com.vaibhav;
 
+import java.util.Random;
 import java.util.Scanner;
 
 // Player class
 class Player {
     Scanner sc = new Scanner(System.in);
 
+    // Declartion objects of private classes
+    private Dice dice; // Declaring object of dice class
+
     // Variable declaration
     int gameAmount;
     int betAmount;
+    int sumOfDice;
 
     // player class constructor
     public Player() {
+
+        // Initializing objects of private classes
+        dice = new Dice();  // Initializing object of dice class
 
         System.out.println("||| Welcome to V's Casino |||");
         System.out.println("⚠️ Play at your own risk. Your money is at stake.");
@@ -45,13 +53,31 @@ class Player {
         System.out.println("💰 Current balance: " + gameAmount);
         System.out.println("💰 Betting amount: " + betAmount);
 
-        if(betAmount > gameAmount) {
+        if (betAmount > gameAmount) {
             System.out.println("❌ You cannot bet more than your current balance.");
             return;
         }
-        if(betAmount <= 0) {
+        else if (betAmount <= 0) {
             System.out.println("❌ Bet amount must be greater than 0.");
             return;
+        }
+        else {
+            dice.diceRoll(); // Calling diceroll method in private dice class
+        }
+    }
+
+    // Private dice class
+    private class Dice {
+        Random rand = new Random();
+
+        //Private diceroll method used to roll two dice
+        private void diceRoll() {
+            System.out.println("Dice Rolling...");
+            int dice1 = rand.nextInt(6) + 1;
+            int dice2 = rand.nextInt(6) + 1;
+            System.out.println("🎲 Dice 1: " + dice1);
+            System.out.println("🎲 Dice 2: " + dice2);
+            sumOfDice = dice1 + dice2;
         }
     }
 }
