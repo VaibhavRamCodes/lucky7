@@ -19,6 +19,7 @@ class Player {
 
     // Declartion objects of private classes
     private Dice dice; // Declaring object of dice class
+    private Result result; // Declaring object of result class
 
     // Variable declaration
     int gameAmount;
@@ -30,6 +31,7 @@ class Player {
 
         // Initializing objects of private classes
         dice = new Dice();  // Initializing object of dice class
+        result = new Result(); // Initializing object of result class
 
         System.out.println("||| Welcome to V's Casino |||");
         System.out.println("⚠️ Play at your own risk. Your money is at stake.");
@@ -56,12 +58,10 @@ class Player {
         if (betAmount > gameAmount) {
             System.out.println("❌ You cannot bet more than your current balance.");
             return;
-        }
-        else if (betAmount <= 0) {
+        } else if (betAmount <= 0) {
             System.out.println("❌ Bet amount must be greater than 0.");
             return;
-        }
-        else {
+        } else {
             dice.diceRoll(); // Calling diceroll method in private dice class
         }
     }
@@ -78,6 +78,27 @@ class Player {
             System.out.println("🎲 Dice 1: " + dice1);
             System.out.println("🎲 Dice 2: " + dice2);
             sumOfDice = dice1 + dice2;
+            result.checkResult();
+        }
+    }
+
+    // Private result class
+    private class Result {
+
+        //Private checkResult method to check the player won or lose.
+        private void checkResult() {
+            if (sumOfDice == 7) {
+                System.out.println("🎉 Congratulations! You won the bet!");
+                gameAmount += (betAmount * 3) - betAmount;
+                System.out.println("Now, you have: " + gameAmount);
+            } else {
+                System.out.println("😢 Oops! You lost the bet.");
+                gameAmount -= betAmount;
+                if (gameAmount == 0) {
+                    System.out.println("💀 You have no money left to continue.");
+                    System.out.println("Better luck next time!");
+                }
+            }
         }
     }
 }
