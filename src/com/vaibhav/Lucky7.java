@@ -20,6 +20,7 @@ class Player {
     // Declartion objects of private classes
     private Dice dice; // Declaring object of dice class
     private Result result; // Declaring object of result class
+    private Retry retry;  // Declaring object of retry class
 
     // Variable declaration
     int gameAmount;
@@ -32,6 +33,7 @@ class Player {
         // Initializing objects of private classes
         dice = new Dice();  // Initializing object of dice class
         result = new Result(); // Initializing object of result class
+        retry = new Retry(); // Initializing object of retry class
 
         System.out.println("||| Welcome to V's Casino |||");
         System.out.println("⚠️ Play at your own risk. Your money is at stake.");
@@ -57,10 +59,10 @@ class Player {
 
         if (betAmount > gameAmount) {
             System.out.println("❌ You cannot bet more than your current balance.");
-            return;
+            retry.retryGame();
         } else if (betAmount <= 0) {
             System.out.println("❌ Bet amount must be greater than 0.");
-            return;
+            retry.retryGame();
         } else {
             dice.diceRoll(); // Calling diceroll method in private dice class
         }
@@ -98,6 +100,23 @@ class Player {
                     System.out.println("💀 You have no money left to continue.");
                     System.out.println("Better luck next time!");
                 }
+                else {
+                    retry.retryGame();
+                }
+            }
+        }
+    }
+
+    private class Retry {
+        private void retryGame() {
+            System.out.println("Press Y to play again or N to exit:");
+            char retryChoice = sc.next().charAt(0); // Only first character of choice will accept either Y or N.
+
+            if (retryChoice == 'Y' || retryChoice == 'y') {
+                startGame();
+            } else {
+                System.out.println("Thanks for playing!");
+                System.out.println("See you next time at V's Casino 🎰");
             }
         }
     }
