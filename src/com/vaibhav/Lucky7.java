@@ -17,7 +17,8 @@ import java.util.Scanner;
 class Player {
     Scanner sc = new Scanner(System.in);
 
-    private Dice dice;
+    // Declartion objects of private classes
+    private Dice dice; // Declaring object of dice class
 
     // Variable declaration
     int gameAmount;
@@ -26,7 +27,9 @@ class Player {
 
     // player class constructor
     public Player() {
-        dice = new Dice();
+
+        // Initializing objects of private classes
+        dice = new Dice();  // Initializing object of dice class
 
         System.out.println("||| Welcome to V's Casino |||");
         System.out.println("⚠️ Play at your own risk. Your money is at stake.");
@@ -53,9 +56,12 @@ class Player {
             System.out.println("❌ You cannot bet more than your current balance.");
             return;
         }
-        if (betAmount <= 0) {
+        else if (betAmount <= 0) {
             System.out.println("❌ Bet amount must be greater than 0.");
             return;
+        }
+        else {
+            dice.diceRoll(); // Calling diceroll method in private dice class
         }
     }
 
