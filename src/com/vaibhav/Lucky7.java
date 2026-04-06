@@ -10,18 +10,23 @@
 
 package com.vaibhav;
 
+import java.util.Random;
 import java.util.Scanner;
 
 // Player class
 class Player {
     Scanner sc = new Scanner(System.in);
 
+    private Dice dice;
+
     // Variable declaration
     int gameAmount;
     int betAmount;
+    int sumOfDice;
 
     // player class constructor
     public Player() {
+        dice = new Dice();
 
         System.out.println("||| Welcome to V's Casino |||");
         System.out.println("⚠️ Play at your own risk. Your money is at stake.");
@@ -52,6 +57,10 @@ class Player {
             System.out.println("❌ Bet amount must be greater than 0.");
             return;
         }
+    }
+
+    private class Dice {
+
     }
 }
 
