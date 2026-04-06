@@ -33,6 +33,25 @@ class Player {
             System.out.println("No worries, maybe next time!");
         }
     }
+
+    private void startGame() {
+        System.out.println("Great! Welcome to the game.");
+        System.out.println("Enter the amount of money you bring to the table: ");
+        gameAmount = sc.nextInt();
+        System.out.println("Enter the bet amount: ");
+        betAmount = sc.nextInt();
+        System.out.println("💰 Current balance: " + gameAmount);
+        System.out.println("💰 Betting amount: " + betAmount);
+
+        if(betAmount > gameAmount) {
+            System.out.println("❌ You cannot bet more than your current balance.");
+            return;
+        }
+        if(betAmount <= 0) {
+            System.out.println("❌ Bet amount must be greater than 0.");
+            return;
+        }
+    }
 }
 
 public class Lucky7 {
