@@ -28,6 +28,9 @@ class Player {
         System.out.println("Do you have the guts? (Yes/No): ");
         String gameStartChoice = sc.next();
         if (gameStartChoice.equalsIgnoreCase("Yes")) {
+            System.out.println("Great! Welcome to the game.");
+            System.out.println("Enter the amount of money you bring to the table: ");
+            gameAmount = sc.nextInt();
             startGame();
         } else {
             System.out.println("No worries, maybe next time!");
@@ -36,9 +39,7 @@ class Player {
 
     // Private start-game method
     private void startGame() {
-        System.out.println("Great! Welcome to the game.");
-        System.out.println("Enter the amount of money you bring to the table: ");
-        gameAmount = sc.nextInt();
+
         System.out.println("Enter the bet amount: ");
         betAmount = sc.nextInt();
         System.out.println("💰 Current balance: " + gameAmount);
