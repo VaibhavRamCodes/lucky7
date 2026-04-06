@@ -58,6 +58,6 @@ class Player {
 
 public class Lucky7 {
     public static void main(String[] args) {
-
+        Player player1 = new Player();
     }
 }
