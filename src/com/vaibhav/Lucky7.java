@@ -58,10 +58,10 @@ class Player {
 
         if (betAmount > gameAmount) {
             System.out.println("❌ You cannot bet more than your current balance.");
-            return;
+            retry.retryGame();
         } else if (betAmount <= 0) {
             System.out.println("❌ Bet amount must be greater than 0.");
-            return;
+            retry.retryGame();
         } else {
             dice.diceRoll(); // Calling diceroll method in private dice class
         }
@@ -98,6 +98,9 @@ class Player {
                 if (gameAmount == 0) {
                     System.out.println("💀 You have no money left to continue.");
                     System.out.println("Better luck next time!");
+                }
+                else {
+                    retry.retryGame();
                 }
             }
         }
