@@ -19,6 +19,7 @@ class Player {
 
     // Declartion objects of private classes
     private Dice dice; // Declaring object of dice class
+    private Result result; // Declaring object of result class
 
     // Variable declaration
     int gameAmount;
@@ -30,6 +31,7 @@ class Player {
 
         // Initializing objects of private classes
         dice = new Dice();  // Initializing object of dice class
+        result = new Result(); // Initializing object of result class
 
         System.out.println("||| Welcome to V's Casino |||");
         System.out.println("⚠️ Play at your own risk. Your money is at stake.");
@@ -78,6 +80,11 @@ class Player {
             System.out.println("🎲 Dice 2: " + dice2);
             sumOfDice = dice1 + dice2;
         }
+    }
+
+    // Private result class
+    private class Result {
+
     }
 }
 
