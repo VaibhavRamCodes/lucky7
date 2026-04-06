@@ -14,7 +14,25 @@ import java.util.Scanner;
 
 // Player class
 class Player {
+    Scanner sc = new Scanner(System.in);
 
+    // Variable declaration
+    int gameAmount;
+    int betAmount;
+
+    // player class constructor
+    public Player() {
+
+        System.out.println("||| Welcome to V's Casino |||");
+        System.out.println("⚠️ Play at your own risk. Your money is at stake.");
+        System.out.println("Do you have the guts? (Yes/No): ");
+        String gameStartChoice = sc.next();
+        if (gameStartChoice.equalsIgnoreCase("Yes")) {
+
+        } else {
+            System.out.println("No worries, maybe next time!");
+        }
+    }
 }
 
 public class Lucky7 {
