@@ -77,6 +77,7 @@ class Player {
             System.out.println("🎲 Dice 1: " + dice1);
             System.out.println("🎲 Dice 2: " + dice2);
             sumOfDice = dice1 + dice2;
+            result.checkResult();
         }
     }
 
